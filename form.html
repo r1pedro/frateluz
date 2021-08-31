@@ -1,1 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frateluz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+form {
+    /* Apenas para centralizar o form na página */
+    margin: 0 auto;
+    width: auto;
+    /* Para ver as bordas do formulário */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form div + div {
+    margin-top: 1em;
+}
+label {
+    /*Para ter certeza que todas as labels tem o mesmo tamanho e estão propriamente alinhadas */
+    font: 1em sans-serif;
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+input, textarea {
+    /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte.
+    Por padrão, textareas ter uma fonte monospace*/
+    font: 1em sans-serif;
+    /* Para dar o mesmo tamanho a todos os campo de texto */
+    width: 350px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Para harmonizar o look & feel das bordas nos campos de texto */
+    border: 0.5px solid #999;
+}
+input:focus, textarea:focus {
+    /* Dar um pouco de destaque nos elementos ativos */
+    border-color: #000;
+}
+textarea {
+    /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
+    vertical-align: top;
+    /* Para dar espaço suficiente para digitar algum texto */
+    height: 5em;
+    /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente.
+    Ele não funciona em todos os browsers */
+    resize: vertical;
+}
+.button {
+    /* Para posicionar os botões para a mesma posição dos campos de texto */
+    padding-left: 60px;
+}
+button {
+    /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
+    margin-left: .5em;
+}
+table {
+    border: 1px solid green;
+    border-collapse: collapse;
+    width:100%;
+}
+table td {
+    border: 1px solid green;
+}
+table td.shrink {
+    white-space: nowrap
+}
+table td.expand {
+    width: 99%
+}
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+<body>
+    <h2>Formulário</h2>
+    <div>
+        Ao terminar o preenchimento do formuário, clique em "Gerar arquivo", faça o download e envie via e-mail para ...
+    </div><br><br>
+    <div>
+        <form>
+        <div>
+            <label for="DataH">Data: </label> <input type="date" id="DataH" value="datetime-local" disabled />
+        <br>
+        </div> <div>
+            01. DADOS DO RESPONSÁVEL PELO PEDIDO. <br>
+            <label for="ANome">Nome: </label><input type="text" id="ANome" placeholder="nome completo" required /> <br>
+            <label for="ATelefone">Telefone: </label><input type="text" id="ATelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="AEmail">Email: </label><input type="text" id="AEmail" /> <br>
+            <label for="AEndereco">Endereço: </label><input type="text" id="AEndereco" required /> <br>
+            <label for="ABairro">Bairro: </label><input type="text" id="ABairro" required /> <br>
+            <label for="ACidade">Cidade: </label><input type="text" id="ACidade" required /> <br>
+            <label for="AEstado">Estado: </label><input type="text" id="AEstado" maxlength="2" placeholder="UF" required /> <br>
+            <label for="ACEP">CEP: </label><input type="text" id="ACEP" required /> <br>
+            <label for="APais">País: </label><input type="text" id="APais" required /> <br>
+        </div> <div>
+            02. DADOS DA IGREJA ONDE SERÁ FEITA A INSTALAÇÃO DOS LUSTRES. <br>
+            <label for="BData">Data: </label><input type="date" id="BData" required /> <br>
+            <label for="BCNPJ">CNPJ: </label><input type="text" id="BCNPJ" required /> <br>
+            <label for="BTelefone">Telefone: </label><input type="text" id="BTelefone" required /> <br>
+            <label for="BEndereco">Endereço: </label><input type="text" id="BEndereco" required /> <br>
+            <label for="BBairro">Bairro: </label><input type="text" id="BBairro" required /> <br>
+            <label for="BCidade">Cidade: </label><input type="text" id="BCidade" required /> <br>
+            <label for="BEstado">Estado: </label><input type="text" id="BEstado" maxlength="2" placeholder="UF" required /> <br>
+            <label for="BCEP">CEP: </label><input type="text" id="BCEP" required /> <br>
+            <label for="BPais">País: </label><input type="text" id="BPais" required /> <br>
+        </div> <div>
+            03. LOCAL DAS REUNIÕES DE ADMINISTRAÇÃO A QUE A IGREJA PERTENCE. <br>
+            <label for="CCNPJ">CNPJ: </label><input type="text" id="CCNPJ" required /> <br>
+            <label for="CTelefone">Telefone: </label><input type="text" id="CTelefone" required /> <br>
+            <label for="CEndereco">Endereço: </label><input type="text" id="CEndereco" required /> <br>
+            <label for="CBairro">Bairro: </label><input type="text" id="CBairro" required="yes" /> <br>
+            <label for="CCidade">Cidade: </label><input type="text" id="CCidade" required /> <br>
+            <label for="CEstado">Estado: </label><input type="text" id="CEstado" maxlength="2" placeholder="UF" required /> <br>
+            <label for="CCEP">CEP: </label><input type="text" id="CCEP" required /> <br>
+            <label for="CPais">País: </label><input type="text" id="CPais" required /> <br>
+        </div> <div>
+            04. DADOS DO PRESIDENTE DA ADMINISTRAÇÃO A QUE A IGREJA PERTENCE. <br>
+            <label for="DNome">Nome: </label><input type="text" id="DNome" placeholder="nome completo" required /> <br>
+            <label for="DTelefone">Telefone: </label><input type="text" id="DTelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="DEmail">Email: </label><input type="text" id="DEmail" /> <br>
+        </div> <div>
+            05. CASO NÃO SEJA RETIRADO, DADOS DA TRANSPORTADORA. <br>
+            <label for="ENome">Nome: </label><input type="text" id="ENome" placeholder="nome completo" required /> <br>
+            <label for="ETelefone">Telefone: </label><input type="text" id="ETelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="EEmail">Email: </label><input type="text" id="EEmail" /> <br>
+        </div> <div>
+            06. DADOS DO IRMÃO RESPONSÁVEL PELA CONSTRUÇÃO OU REFORMA DA IGREJA. <br>
+            <label for="FNome">Nome: </label><input type="text" id="FNome" placeholder="nome completo" required /> <br>
+            <label for="FTelefone">Telefone: </label><input type="text" id="FTelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="FEmail">Email: </label><input type="text" id="FEmail" /> <br>
+        </div> <div>
+            07. DADOS DO PRÉDIO ONDE SERÁ FEITA A INSTALAÇÃO DOS LUSTRES. <br>
+            <label for="GTipo">Tipo de Construção:</label> <select id="GTipo"> <option value="GSelect" selected>- selecione -</option>
+                <option value="GConstrucao">Construção nova.</option> <option value="GReforma">Reforma.</option> </select> <br>
+            <label for="GPredio">Tipo do Local:</label> <select id="GPredio"> <option value="GSelect" selected>- selecione -</option>
+                <option value="GPropio">Local Próprio.</option> <option value="GCedido">Local Cedido.</option>
+                <option value="GAlugado">Local Alugado.</option> </select> <br>
+            <br>
+            07.1. ILUMINAÇÃO NO LOCAL. <br>
+            <label for="GTipoSe">Tipo de iluminação:</label> <select id="GTipoSe"> <option value="GSelect" selected>- selecione -</option>
+                <option value="GLustre">Lustre.</option> <option value="GCalha">Calha.</option>
+                <option value="GOutro">Outro.</option> </select> <br>
+            <label for="GLamp">Quantidade de lâmpadas: </label><input type="text" id="GLamp" /> <br>
+            <label for="GLampTipo">Tipo da lâmpada:</label> <input list="GLampTipo" name="GLampTipo" id="GLampTipo" value="Fluorecente"> <datalist id="GLampTipo">
+                <option value="Fluorecente"> <option value="HO"> <option value="Compacta (econômica)">
+                <option value="Incandecente"> <option value="LED"> <option value="Outros"> </datalist> <br>
+            <label for="GLampW">Watts por lâmpada: </label><input type="text" id="GLampW" />
+        </div> <div>
+            08. DADOS DO IRMÃO RESPONSÁVEL PELA PARTE ELÉTRICA DA IGREJA. <br>
+            <label for="HNome">Nome: </label><input type="text" id="HNome" placeholder="nome completo" required /> <br>
+            <label for="HTelefone">Telefone: </label><input type="text" id="HTelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="HEmail">Email: </label><input type="text" id="HEmail" /> <br>
+        </div> <div>
+            09. DADOS DO ANCIÃO OU COOPERADOR QUE ATENDE NO LOCAL DA INSTALAÇÃO. <br>
+            <label for="INome">Nome: </label><input type="text" id="INome" placeholder="nome completo" required /> <br>
+            <label for="ITelefone">Telefone: </label><input type="text" id="ITelefone" placeholder="(DDD) 0000-0000" required /> <br>
+            <label for="IEmail">Email: </label><input type="text" id="IEmail" /> <br>
+        </div> <div>
+            10. NO CASO DO USO DE TRANSPORTADORA, PREENCHA OS DADOS DO LOCAL DA ENTREGA.<br>
+            <label for="JTelefone">Telefone: </label><input type="text" id="JTelefone" required /> <br>
+            <label for="JEndereco">Endereço: </label><input type="text" id="JEndereco" required /> <br>
+            <label for="JBairro">Bairro: </label><input type="text" id="JBairro" required="yes" /> <br>
+            <label for="JCidade">Cidade: </label><input type="text" id="JCidade" required /> <br>
+            <label for="JEstado">Estado: </label><input type="text" id="JEstado" maxlength="2" placeholder="UF" required /> <br>
+            <label for="JCEP">CEP: </label><input type="text" id="JCEP" required /> <br>
+            <label for="JPais">País: </label><input type="text" id="JPais" required /> <br>
+        </div> <div>
+            11. INFORMAÇÕES E MEDIDAS INTERNAS DO SALÃO DA IGREJA ONDE SERÃO INTALADOS OS LUSTRES. <br>
+            <br>
+            11.1. DETALHES DO SALÃO. <br>
+            <label for="KSalaoC">Comprimento: </label><input type="text" id="KSalaoC" /> <br>
+            <label for="KSalaoL">Largura: </label><input type="text" id="KSalaoL" /> <br>
+            <label for="KSalaoH">Altura: </label><input type="text" id="KSalaoH" /> <br>
+            <label for="KVoltagem">Voltagem:</label> <select id="KVoltagem"> <option value="KSelect" selected>- selecione -</option>
+                <option value="K110">110 VOLTS.</option> <option value="K220">220 VOLTS.</option> <option value="K1102">110 ou 220V.</option> </select> <br>
+            <label for="KTipo">Tipo forro: </label><input type="text" id="KTipo" /> <br>
+            <label for="KCorForro">Cor forro: </label><input type="text" id="KCorForro" /> <br>
+            <label for="KCorParede">Cor parede interna: </label><input type="text" id="KCorParede" /> <br>
+            <br>
+            11.2. DETALHES DA GALERIA. <br>
+            <label for="KGaleria">Tem:</label> <select id="KGaleria"> <option value="KSelect" selected>- selecione -</option>
+                <option value="KSim">SIM.</option> <option value="KNao">NÃO.</option> </select> <br>
+            <label for="KGaleriaC">Comprimento: </label><input type="text" id="KGaleriaC" /> <br>
+            <label for="KGaleriaL">Largura: </label><input type="text" id="KGaleriaL" /> <br>
+            <label for="KGaleriaH">Altura: </label><input type="text" id="KGaleriaH" /> <br>
+        </div> <div>
+            12. OUTROS DADOS E OBSERVAÇÕES. <br>
+            <label for="LObs"> </label> <textarea type="text" id="LObs"></textarea>
+        </div> <div>
+            Qualquer sugestão ou dúvida, por favor, entre em contato com a ASSOCIAÇÃO FRATELUZ.
+        </div>
+        </form>
+        <br>
+        <!--Add to button to save the data.-->
+        <input type="button" id="bt" value="Gerar arquivo" onclick="saveFile()" />
+    </div>
+</body>
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const a1nome = document.getElementById('ANome');
+        const a1telefone = document.getElementById('ATelefone');
+        const a1email = document.getElementById('AEmail');
+        const a1endereco = document.getElementById('AEndereco');
+        const a1bairro = document.getElementById('ABairro');
+        const a1cidade = document.getElementById('ACidade');
+        const a1estado = document.getElementById('AEstado');
+        const a1cep = document.getElementById('ACEP');
+        const a1pais = document.getElementById('APais');
+        
+        const b1data = document.getElementById('BData');
+        const b1cnpj = document.getElementById('BCNPJ');
+        const b1telefone = document.getElementById('BTelefone');
+        const b1endereco = document.getElementById('BEndereco');
+        const b1bairro = document.getElementById('BBairro');
+        const b1cidade = document.getElementById('BCidade');
+        const b1estado = document.getElementById('BEstado');
+        const b1cep = document.getElementById('BCEP');
+        const b1pais = document.getElementById('BPais');
 
+        const c1cnpj = document.getElementById('CCNPJ');
+        const c1telefone = document.getElementById('CTelefone');
+        const c1endereco = document.getElementById('CEndereco');
+        const c1bairro = document.getElementById('CBairro');
+        const c1cidade = document.getElementById('CCidade');
+        const c1estado = document.getElementById('CEstado');
+        const c1cep = document.getElementById('CCEP');
+        const c1pais = document.getElementById('CPais');
+
+        const d1nome = document.getElementById('DNome');
+        const d1telefone = document.getElementById('DTelefone');
+        const d1email = document.getElementById('DEmail');
+        
+        const e1nome = document.getElementById('ENome');
+        const e1telefone = document.getElementById('ETelefone');
+        const e1email = document.getElementById('EEmail');
+
+        const f1nome = document.getElementById('FNome');
+        const f1telefone = document.getElementById('FTelefone');
+        const f1email = document.getElementById('FEmail');
+
+        const g1tipo = document.getElementById('GTipo');
+        const g1predio = document.getElementById('GPredio');
+        const g1tipose = document.getElementById('GTipoSe');
+        const g1glamp = document.getElementById('GLamp');
+        const g1glamptipo = document.getElementById('GLampTipo');
+        const g1glampw = document.getElementById('GLampW');
+
+        const h1nome = document.getElementById('HNome');
+        const h1telefone = document.getElementById('HTelefone');
+        const h1email = document.getElementById('HEmail');
+
+        const i1nome = document.getElementById('INome');
+        const i1telefone = document.getElementById('ITelefone');
+        const i1email = document.getElementById('IEmail');
+
+        const j1telefone = document.getElementById('JTelefone');
+        const j1endereco = document.getElementById('JEndereco');
+        const j1bairro = document.getElementById('JBairro');
+        const j1cidade = document.getElementById('JCidade');
+        const j1estado = document.getElementById('JEstado');
+        const j1cep = document.getElementById('JCEP');
+        const j1pais = document.getElementById('JPais');
+
+        const k1salaoc = document.getElementById('KSalaoC');
+        const k1salaol = document.getElementById('KSalaoL');
+        const k1salaoh = document.getElementById('KSalaoH');
+        const k1voltagem = document.getElementById('KVoltagem');
+        const k1tipo = document.getElementById('KTipo');
+        const k1corforro = document.getElementById('KCorForro');
+        const k1corparede = document.getElementById('KCorParede');
+        const k1galeria = document.getElementById('KGaleria');
+        const k1galeriac = document.getElementById('KGaleriaC');
+        const k1galerial = document.getElementById('KGaleriaL');
+        const k1galeriah = document.getElementById('KGaleriaH');
+
+        const l1obs = document.getElementById('LObs');
+
+        // This variable stores all the data.
+        let data = 
+            '\r PEDIDO DE LUSTRES' + ' \r\n ' +
+            '' + ' \r\n ' +
+            '01 - DADOS DO RESPOSÁVEL PELO PEDIDO.' + ' \r\n ' +
+            'Nome : ' + a1nome.value + ' \r\n ' +
+            'Telefone : ' + a1telefone.value + ' \r\n ' +
+            'Email : ' + a1email.value + ' \r\n ' +
+            'Endereço : ' + a1endereco.value + ' \r\n ' +
+            'Bairro : ' + a1bairro.value + ' \r\n ' +
+            'Cidade : ' + a1cidade.value + '  ' +
+            'Estado : ' + a1estado.value + ' \r\n ' +
+            'CEP : ' + a1cep.value + '  ' +
+            'Pais : ' + a1pais.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '02 - DADOS DA IGREJA ONDE SERA FEITA A INSTALAÇÃO.' + ' \r\n ' +
+            'Data : ' + b1data.value + ' \r\n ' +
+            'CNPJ : ' + b1cnpj.value + ' \r\n ' +
+            'Telefone : ' + b1telefone.value + ' \r\n ' +
+            'Endereço : ' + b1endereco.value + ' \r\n ' +
+            'Bairro : ' + b1bairro.value + ' \r\n ' +
+            'Cidade : ' + b1cidade.value + '  ' +
+            'Estado : ' + b1estado.value + ' \r\n ' +
+            'CEP : ' + b1cep.value + '  ' +
+            'Pais : ' + b1pais.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '03 - LOCAL DA ADMINISTRAÇÃO A QUE A IGREJA PERTENCE.' + ' \r\n ' +
+            'CNPJ : ' + c1cnpj.value + ' \r\n ' +
+            'Telefone : ' + c1telefone.value + ' \r\n ' +
+            'Endereço : ' + c1endereco.value + ' \r\n ' +
+            'Bairro : ' + c1bairro.value + ' \r\n ' +
+            'Cidade : ' + c1cidade.value + '  ' +
+            'Estado : ' + c1estado.value + ' \r\n ' +
+            'CEP : ' + c1cep.value + '  ' +
+            'Pais : ' + c1pais.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '04 - DADOS DO PRESIDENTE DA ADMINISTRAÇÃO A QUE A IGREJA PERTENCE.' + ' \r\n ' +
+            'Nome : ' + d1nome.value + ' \r\n ' +
+            'Telefone : ' + d1telefone.value + ' \r\n ' +
+            'Email : ' + d1email.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '05 - CASO NÃO SEJA RETIRADO, DADOS DA TRANSPORTADORA.' + ' \r\n ' +
+            'Nome : ' + e1nome.value + ' \r\n ' +
+            'Telefone : ' + e1telefone.value + ' \r\n ' +
+            'Email : ' + e1email.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '06 - DADOS DO IRMÃO RESPONSÁVEL PELA CONSTRUÇÃO OU REFORMA.' + ' \r\n ' +
+            'Nome : ' + f1nome.value + ' \r\n ' +
+            'Telefone : ' + f1telefone.value + ' \r\n ' +
+            'Email : ' + f1email.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '07 - DADOS DO PRÉDIO ONDE SERÁ FEITA A INSTALAÇÃO.' + ' \r\n ' +
+            'Tipo : ' + g1tipo.value + ' \r\n ' +
+            'Prédio : ' + g1predio.value + ' \r\n ' +
+            'Iluminação : ' + g1tipose.value + ' \r\n ' +
+            'Qtd. lâmp. : ' + g1glamp.value + ' \r\n ' +
+            'Lâmpada : ' + g1glamptipo.value + ' \r\n ' +
+            'W/u : ' + g1glampw.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '08 - DADOS DO IRMÃO RESPONSÁVEL PELA PARTE ELÉTRICA DA IGREJA.' + ' \r\n ' +
+            'Nome : ' + h1nome.value + ' \r\n ' +
+            'Telefone : ' + h1telefone.value + ' \r\n ' +
+            'Email : ' + h1email.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '09 - DADOS DO ANCIÃO OU COOPERADOR.' + ' \r\n ' +
+            'Nome : ' + i1nome.value + ' \r\n ' +
+            'Telefone : ' + i1telefone.value + ' \r\n ' +
+            'Email : ' + i1email.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '10 - TRANSPORTADORA, DADOS DO LOCAL DA ENTREGA.' + ' \r\n ' +
+            'Telefone : ' + j1telefone.value + ' \r\n ' +
+            'Endereço : ' + j1endereco.value + ' \r\n ' +
+            'Bairro : ' + j1bairro.value + ' \r\n ' +
+            'Cidade : ' + j1cidade.value + '  ' +
+            'Estado : ' + j1estado.value + ' \r\n ' +
+            'CEP : ' + j1cep.value + '  ' +
+            'Pais : ' + j1pais.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '11 - INFORMAÇÕES E MEDIDAS INTERNAS DO SALÃO DA IGREJA.' + ' \r\n ' +
+            'Salão Comp. : ' + k1salaoc.value + ' \r\n ' +
+            'Salão Larg. : ' + k1salaol.value + ' \r\n ' +
+            'Salão Altura : ' + k1salaoh.value + ' \r\n ' +
+            'Voltagem : ' + k1voltagem.value + ' \r\n ' +
+            'Forro : ' + k1tipo.value + ' \r\n ' +
+            'Cor do Forro : ' + k1corforro.value + ' \r\n ' +
+            'Cor da Parede : ' + k1corparede.value + ' \r\n ' +
+            'Galeria : ' + k1galeria.value + ' \r\n ' +
+            'Galeria Comp. : ' + k1galeriac.value + ' \r\n ' +
+            'Galeria Larg. : ' + k1galerial.value + ' \r\n ' +
+            'Galeria Altura : ' + k1galeriah.value + ' \r\n ' +
+            '' + ' \r\n ' +
+            '12 - OUTROS DADOS E OBSERVAÇÕES.' + ' \r\n ' +
+            l1obs.value ;
+
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/enriched' });
+        const sFileName = 'formData.doc';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+</html>
